@@ -1,10 +1,10 @@
-# Use official Nginx image
+# Use official Nginx image from Docker Hub
 FROM nginx:alpine
 
-# Remove default HTML files
+# Remove default Nginx page
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy your index.html to nginx directory
+# Copy our HTML file into the Nginx directory
 COPY index.html /usr/share/nginx/html/
 
 # Expose port 80
