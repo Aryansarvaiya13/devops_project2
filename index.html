@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps CI/CD Pipeline Project</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #60A5FA, #34D399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .arrow {
+            position: relative;
+            font-size: 2.5rem;
+            color: #4B5563; /* gray-600 */
+            margin: 0 1rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+        .card {
+             background-color: #1F2937; /* bg-gray-800 */
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-cogs text-2xl text-blue-400"></i>
+                <h1 class="text-xl font-bold tracking-wider">Classic DevOps Pipeline</h1>
+            </div>
+            <nav>
+                <a href="#overview" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Overview</a>
+                <a href="#tools" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tools</a>
+                <a href="#workflow" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Workflow</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+
+        <!-- Hero Section -->
+        <section id="overview" class="text-center mb-24">
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-4">
+                Automated Static Site Deployment
+            </h2>
+            <p class="gradient-text text-xl md:text-2xl font-semibold mb-8">
+                Git, Jenkins, Docker & Cloudflare Tunnel
+            </p>
+            <p class="max-w-3xl mx-auto text-lg text-gray-400">
+                This project showcases a complete DevOps pipeline for building, containerizing, and deploying a static website. The pipeline is triggered on every code change, automating the entire workflow from commit to a publicly accessible website.
+            </p>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="mb-24">
+            <h3 class="text-3xl font-bold text-center mb-12">Core Technologies</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Git Card -->
+                <div class="card p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-red-500/20 mb-6">
+                        <i class="fab fa-git-alt text-3xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Git</h4>
+                    <p class="text-gray-400">Serves as the version control system. A `git push` to the repository initiates the CI/CD pipeline.</p>
+                </div>
+                <!-- Jenkins Card -->
+                <div class="card p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-500/20 mb-6">
+                        <i class="fab fa-jenkins text-3xl text-gray-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Jenkins</h4>
+                    <p class="text-gray-400">The automation server that fetches the latest code, runs the build, and manages the deployment process.</p>
+                </div>
+                <!-- Docker Card -->
+                <div class="card p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-500/20 mb-6">
+                        <i class="fab fa-docker text-3xl text-blue-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Docker</h4>
+                    <p class="text-gray-400">Containerizes the static website with a web server, ensuring a consistent and portable runtime environment.</p>
+                </div>
+                <!-- Cloudflare Card -->
+                <div class="card p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-orange-500/20 mb-6">
+                        <i class="fas fa-cloud text-3xl text-orange-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Cloudflare Tunnel</h4>
+                    <p class="text-gray-400">Exposes the local Docker container to the internet securely, without needing a public IP or complex firewall rules.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="workflow">
+            <h3 class="text-3xl font-bold text-center mb-16">The Automated Workflow</h3>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-4">
+                <!-- Step 1: Push -->
+                <div class="text-center flex flex-col items-center">
+                    <div class="card rounded-full h-24 w-24 flex items-center justify-center shadow-md mb-3">
+                        <i class="fas fa-code-commit text-4xl text-gray-300"></i>
+                    </div>
+                    <h5 class="font-bold">1. Git Push</h5>
+                    <p class="text-sm text-gray-400">Developer commits code</p>
+                </div>
+
+                <div class="arrow hidden md:block">→</div>
+                <div class="arrow rotate-90 md:hidden">↓</div>
+
+                <!-- Step 2: Trigger -->
+                <div class="text-center flex flex-col items-center">
+                    <div class="card rounded-full h-24 w-24 flex items-center justify-center shadow-md mb-3">
+                        <i class="fas fa-satellite-dish text-4xl text-gray-300"></i>
+                    </div>
+                    <h5 class="font-bold">2. Jenkins Trigger</h5>
+                    <p class="text-sm text-gray-400">Webhook starts pipeline</p>
+                </div>
+
+                <div class="arrow hidden md:block">→</div>
+                <div class="arrow rotate-90 md:hidden">↓</div>
+
+                <!-- Step 3: Build -->
+                <div class="text-center flex flex-col items-center">
+                    <div class="card rounded-full h-24 w-24 flex items-center justify-center shadow-md mb-3">
+                        <i class="fas fa-box-open text-4xl text-gray-300"></i>
+                    </div>
+                    <h5 class="font-bold">3. Docker Build</h5>
+                    <p class="text-sm text-gray-400">Jenkins creates image</p>
+                </div>
+                
+                <div class="arrow hidden md:block">→</div>
+                <div class="arrow rotate-90 md:hidden">↓</div>
+
+                <!-- Step 4: Deploy -->
+                <div class="text-center flex flex-col items-center">
+                    <div class="card rounded-full h-24 w-24 flex items-center justify-center shadow-md mb-3">
+                        <i class="fas fa-rocket text-4xl text-gray-300"></i>
+                    </div>
+                    <h5 class="font-bold">4. Deploy Container</h5>
+                    <p class="text-sm text-gray-400">New container is launched</p>
+                </div>
+
+                <div class="arrow hidden md:block">→</div>
+                <div class="arrow rotate-90 md:hidden">↓</div>
+
+                <!-- Step 5: Live -->
+                <div class="text-center flex flex-col items-center">
+                    <div class="card rounded-full h-24 w-24 flex items-center justify-center shadow-md mb-3">
+                        <i class="fas fa-globe text-4xl text-gray-300"></i>
+                    </div>
+                    <h5 class="font-bold">5. Go Live!</h5>
+                    <p class="text-sm text-gray-400">Site is live via Tunnel</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800/50 mt-24">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2024. A project demonstrating a classic CI/CD pipeline.</p>
+            <p class="text-sm">Built with HTML, Tailwind CSS, and lots of automation.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
