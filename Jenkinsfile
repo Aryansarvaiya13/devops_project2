@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
+<<<<<<< HEAD
                 script {
 <<<<<<< HEAD
                     try {
@@ -24,11 +25,15 @@ pipeline {
                     sh 'docker build -t devops_project:latest . '
 >>>>>>> 54a1a179967a49a26cf4df171d67822a059270e1
                 }
+=======
+                sh 'docker build -t devops_project .'
+>>>>>>> 74d923bf704bb52defb4efef4b675c19c996a2ae
             }
         }
 
         stage('Run Container') {
             steps {
+<<<<<<< HEAD
                 script {
 <<<<<<< HEAD
                     try {
@@ -50,6 +55,13 @@ pipeline {
                     sh 'docker run -d --name devops_container --network devops-net -p 9000:80 my-devops-project'
 >>>>>>> 54a1a179967a49a26cf4df171d67822a059270e1
                 }
+=======
+                
+                    sh 'docker stop devops_container || true'
+                    sh 'docker rm devops_container || true'
+                    sh 'docker run -d -p 8081:80 --name devops_container devops_project'
+                
+>>>>>>> 74d923bf704bb52defb4efef4b675c19c996a2ae
             }
         }
     }
