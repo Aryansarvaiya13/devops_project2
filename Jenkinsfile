@@ -16,7 +16,7 @@ pipeline {
                     sh 'docker stop devops_container || true'
                     sh 'docker rm devops_container || true'
 
-                    sh 'docker run -d devops_project'
+                    sh 'docker run -d -p 8081:80 devops_project'
                 }
             }
         }
