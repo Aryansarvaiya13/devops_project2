@@ -5,7 +5,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("my-devops-project")
+                    docker.build("devops_project")
                 }
             }
         }
@@ -13,10 +13,10 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                    sh 'docker stop my-devops-container || true'
-                    sh 'docker rm my-devops-container || true'
+                    sh 'docker stop devops_container || true'
+                    sh 'docker rm devops_container || true'
 
-                    sh 'docker run -d --name my-devops-container --network devops-net -p 8081:80 my-devops-project'
+                    sh 'docker run -d --name devops_container --network devops-net -p 9000:80 devops_project'
                 }
             }
         }
