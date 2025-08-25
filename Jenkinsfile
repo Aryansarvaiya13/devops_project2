@@ -12,6 +12,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
+<<<<<<< HEAD
                     try {
                         sh "docker build -t ${IMAGE_NAME} ."
                     } catch (err) {
@@ -19,6 +20,9 @@ pipeline {
                         currentBuild.result = 'FAILURE'
                         error("Stopping pipeline due to Docker build failure")
                     }
+=======
+                    sh 'docker build -t devops_project:latest . '
+>>>>>>> 54a1a179967a49a26cf4df171d67822a059270e1
                 }
             }
         }
@@ -26,6 +30,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
+<<<<<<< HEAD
                     try {
                         // Stop & remove existing container if it exists
                         sh "docker stop ${CONTAINER_NAME} || true"
@@ -38,6 +43,12 @@ pipeline {
                         currentBuild.result = 'FAILURE'
                         error("Stopping pipeline due to Docker run failure")
                     }
+=======
+                    sh 'docker stop devops_container || true'
+                    sh 'docker rm devops_container || true'
+
+                    sh 'docker run -d --name devops_container --network devops-net -p 9000:80 my-devops-project'
+>>>>>>> 54a1a179967a49a26cf4df171d67822a059270e1
                 }
             }
         }
