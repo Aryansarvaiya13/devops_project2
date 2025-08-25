@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                docker.build("devops_project")
+                sh 'docker build -t devops_project .'
             }
         }
 
